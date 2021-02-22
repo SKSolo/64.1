@@ -1,0 +1,42 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+const int SIZE = 200;
+ifstream plik("C:\\dane_obrazki.txt");
+char tab[21][21];
+
+void zczytaj()
+{
+	
+	for (int i = 0; i < 21; i++) {
+    for (int j = 0; j < 21; j++) {
+      plik >> tab[i][j];
+    }
+ 	}
+  
+}
+
+void rewers() {
+	
+  int czarne = 0, biale = 0;
+  
+  for (int i = 0; i < 20; i++) {
+  for (int j = 0; j < 20; j++) {
+      if (tab[i][j] == '0') czarne++;
+      if (tab[i][j] == '1') biale++;
+  }
+  }
+  
+  cout<<"Czarnych: "<<czarne;
+  cout<<"\nBiale: "<<biale;
+  
+}
+
+
+int main(int argc, char** argv) {
+	zczytaj();
+	rewers();
+	
+	return 0;
+}
